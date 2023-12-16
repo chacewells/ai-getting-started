@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     streaming: true,
     modelName: "gpt-3.5-turbo-16k",
     openAIApiKey: process.env.OPENAI_API_KEY,
-    callbackManager: CallbackManager.fromHandlers(handlers),
+    callbacks: CallbackManager.fromHandlers(handlers),
   });
 
   const chain = VectorDBQAChain.fromLLM(model, vectorStore, {
